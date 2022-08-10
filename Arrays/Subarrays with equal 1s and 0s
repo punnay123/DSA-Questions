@@ -1,0 +1,14 @@
+long long int countSubarrWithEqualZeroAndOne(int arr[], int n)
+    {
+         long long int res = 0;
+        unordered_map<int,int> m;
+        m[0] = 1;
+        long long int presum = 0;
+        for(int i=0; i<n; i++){
+            if(arr[i] == 0) arr[i]--;
+            presum += arr[i];
+            res += m[presum];
+            m[presum]++;
+        }
+        return res;
+    }
